@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background: url('immagine.png') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        .overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* leggero overlay scuro */
+            flex-direction: column;
+        }
+
+        .menu-button {
+            padding: 20px 40px;
+            margin: 10px;
+            font-size: 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #ffffffcc;
+            transition: background-color 0.3s;
+        }
+
+        .menu-button:hover {
+            background-color: #ffcc00cc;
+        }
+
+        .menu-content {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #ffffffcc;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <button class="menu-button" onclick="showMenu('bevande')">Bevande</button>
+        <button class="menu-button" onclick="showMenu('pizze')">Pizze</button>
+        <button class="menu-button" onclick="showMenu('dolci')">Dolci</button>
+
+        <div id="bevande" class="menu-content">
+            <h2>Bevande</h2>
+            <ul>
+                <li>Acqua</li>
+                <li>Bibite</li>
+                <li>Vino</li>
+            </ul>
+        </div>
+
+        <div id="pizze" class="menu-content">
+            <h2>Pizze</h2>
+            <ul>
+                <li>Margherita</li>
+                <li>Diavola</li>
+                <li>Capricciosa</li>
+            </ul>
+        </div>
+
+        <div id="dolci" class="menu-content">
+            <h2>Dolci</h2>
+            <ul>
+                <li>Tiramisu</li>
+                <li>Panna Cotta</li>
+                <li>Gelato</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function showMenu(id) {
+            // Nasconde tutti i menu
+            const menus = document.querySelectorAll('.menu-content');
+            menus.forEach(menu => menu.style.display = 'none');
+
+            // Mostra solo quello selezionato
+            const selectedMenu = document.getElementById(id);
+            selectedMenu.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
